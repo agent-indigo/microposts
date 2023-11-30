@@ -9,7 +9,6 @@ class UI {
         this.bodyInput = document.querySelector('#body');
         this.idInput = document.querySelector('#id');
         this.postSubmit = document.querySelector('.post-submit');
-        // this.forState = 'add';
     }
     // show posts
     showPosts(posts) {

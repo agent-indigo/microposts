@@ -57,17 +57,18 @@ const BootswatchSelector = (() => {
 	async function init(defaultThemeName) {
 		if (!defaultThemeName) {
 			throw new Error('No default Bootswatch theme provided.');
+		} else {
+			try {
+				selectElement = document.querySelector('select#bootswatch-selector');
+			} catch (error) {
+				console.error('HTML <select> element with id of "bootswatch-selector" not found:', error);
+			}
+			defaultTheme = toTitleCase(defaultThemeName);
+			await fetchThemes();
+			renderThemes();
+			applyDefaultTheme();
+			setupEventListeners();
 		}
-		try {
-			selectElement = document.querySelector('select#bootswatch-selector');
-		} catch (error) {
-			console.error('HTML <select> element with id of "bootswatch-selector" not found:', error)
-		}
-		defaultTheme = toTitleCase(defaultThemeName);
-		await fetchThemes();
-		renderThemes();
-		applyDefaultTheme();
-		setupEventListeners();
 	}
 	// Public API
 	return {

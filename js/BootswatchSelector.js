@@ -3,9 +3,9 @@ const BootswatchSelector = (() => {
 	let selectElement;
 	let defaultTheme;
 	let themes;
-	function toTitleCase(str) {
-		return str.replace(/\w\S*/g, function (txt) {
-			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+	function toTitleCase(string) {
+		return string.replace(/\w\S*/g, filteredString => {
+			return filteredString.charAt(0).toUpperCase() + filteredString.substr(1).toLowerCase();
 		});
 	}
 	function createOptionElement(theme) {

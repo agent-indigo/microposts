@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a refactoring of the MicroPosts project from Brad Traversy's 2018 Modern JavaScript from the Beginning course. I added a Bootswatch theme selector, replaced the nav with a header, and removed the footer.
+This is a refactoring of the MicroPosts project from Brad Traversy's 2018 Modern JavaScript from the Beginning course on O'Reilly. I added a Bootswatch theme selector, replaced the nav with a header, and removed the footer.
 
 ## Note
 

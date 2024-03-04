@@ -1,16 +1,16 @@
-class EasyHTTP {
+const EasyHTTP = (() => {
     // Make an HTTP GET Request
-    async get(url) {
+    const get = async url => {
         try {
             const response = await fetch(url)
             const data = await response.json()
             return data
         } catch (error) {
-            return console.error('Error encountered while retrieving:', error)
+            return console.error(`Error encountered while retrieving:\n${error}`)
         }
     }
     // Make an HTTP POST Request
-    async post(url, data) {
+    const post = async (url, data) => {
         try {
             const response = await fetch(url, {
                 method: 'POST',
@@ -22,11 +22,11 @@ class EasyHTTP {
             const responseData = await response.json()
             return responseData
         } catch (error) {
-            return console.error('Error encountered while posting:', error)
+            return console.error(`Error encountered while posting:\n${error}`)
         }
     }
     // Make an HTTP PUT Request
-    async put(url, data) {
+    const put = async (url, data) => {
         try {
             const response = await fetch(url, {
                 method: 'PUT',
@@ -38,11 +38,11 @@ class EasyHTTP {
             const responseData = await response.json()
             return responseData
         } catch (error) {
-            return console.error('Error encountered while updating:', error)
+            return console.error(`Error encountered while updating:\n${error}`)
         }
     }
     // Make an HTTP DELETE Request
-    async delete(url) {
+    const del = async url => {
         try {
             await fetch(url, {
                 method: 'DELETE',
@@ -52,9 +52,14 @@ class EasyHTTP {
             })
             return 'Deleted!'
         } catch (error) {
-            return console.error('Error encountered while deleting:', error)
+            return console.error(`Error encountered while deleting:\n${error}`)
         }
     }
-}
-// eslint-disable-next-line import/no-anonymous-default-export
-export default new EasyHTTP()
+    return {
+        get,
+        post,
+        put,
+        del
+    }
+})()
+export default EasyHTTP

@@ -108,7 +108,7 @@ class UI {
 class App {
     constructor() {
         // initialize BootswatchSelector
-        BootswatchSelector.init('united')
+        BootswatchSelector('United')
         // initialize UI
         this.ui = new UI()
         // load event listeners

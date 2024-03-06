@@ -1,5 +1,4 @@
 const EasyHTTP = (() => {
-    // Make an HTTP GET Request
     const get = async url => {
         try {
             const response = await fetch(url)
@@ -9,7 +8,6 @@ const EasyHTTP = (() => {
             return console.error(`Error encountered while retrieving:\n${error}`)
         }
     }
-    // Make an HTTP POST Request
     const post = async (url, data) => {
         try {
             const response = await fetch(url, {
@@ -25,7 +23,6 @@ const EasyHTTP = (() => {
             return console.error(`Error encountered while posting:\n${error}`)
         }
     }
-    // Make an HTTP PUT Request
     const put = async (url, data) => {
         try {
             const response = await fetch(url, {
@@ -41,7 +38,49 @@ const EasyHTTP = (() => {
             return console.error(`Error encountered while updating:\n${error}`)
         }
     }
-    // Make an HTTP DELETE Request
+    const patch = async (url, data) => {
+        try {
+            const response = await fetch(url, {
+                method: 'PATCH',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            const responseData = await response.json()
+            return responseData
+        } catch (error) {
+            return console.error(`Error encountered while updating:\n${error}`)
+        }
+    }
+    const head = async url => {
+        try {
+            const response = await fetch(url, {
+                method: 'HEAD',
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+            const responseData = await response.json()
+            return responseData
+        } catch (error) {
+            return console.error(`Error encountered while retrieving:\n${error}`)
+        }
+    }
+    const options = async url => {
+        try {
+            await fetch(url, {
+                method: 'OPTIONS',
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+            const responseData = await response.json()
+            return responseData
+        } catch (error) {
+            return console.error(`Error encountered while retrieving:\n${error}`)
+        }
+    }
     const del = async url => {
         try {
             await fetch(url, {
@@ -59,6 +98,9 @@ const EasyHTTP = (() => {
         get,
         post,
         put,
+        patch,
+        head,
+        options,
         del
     }
 })()

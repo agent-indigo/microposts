@@ -174,7 +174,7 @@ class App {
         if(event.target.parentElement.classList.contains('delete')) {
             const id = event.target.parentElement.dataset.id
             if(confirm('Are you sure?')) {
-                EasyHTTP.delete(`http://localhost:3000/posts/${id}`)
+                EasyHTTP.del(`http://localhost:3000/posts/${id}`)
                     .then(() => {
                         this.ui.showAlert('Post deleted', 'alert alert-success')
                         this.getPosts()

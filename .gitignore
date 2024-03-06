@@ -2,3 +2,5 @@
 node_modules/
 # database
 db.json
+# misc
+**/.DS_Store
